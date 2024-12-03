@@ -96,7 +96,7 @@ The system automatically updates the status of orders every minute using a cron 
 
 ## Postman Collection
 
-You can use the [Postman Collection](https://api.postman.com/collections/36576434-a603dfeb-94ab-4443-b4a0-9ea5e047d741?access_key=PMAT-01JE6HD5J3GJDGC67Z8FFG0XEV) to interact with the API. Import the collection into Postman and make requests to test the functionality.
+You can use the [Postman Collection](https://www.postman.com/nitheshalva/workspace/public/collection/36576434-a603dfeb-94ab-4443-b4a0-9ea5e047d741?action=share&creator=36576434) to interact with the API. Import the collection into Postman and make requests to test the functionality.
 
 ### How to Use Postman Collection:
 
