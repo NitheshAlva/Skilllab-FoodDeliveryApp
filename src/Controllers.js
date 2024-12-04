@@ -1,3 +1,4 @@
+const { getId, getRandTime } = require('./utils/generatorsUtil')
 const categories = ['break-fast', 'snack', 'ice-cream', 'juice'];
 let menu = [];
 let orders = [];
@@ -45,8 +46,8 @@ const placeOrder = (req, res) => {
         items: order,
         id: getId(),
         status: "Preparing",
-        preparedBy: Date.now() + getRandTime(1, 2),
-        deliveredBy: Date.now() + getRandTime(2, 4)
+        preparedBy: new Date(Date.now() + getRandTime(1, 3)).toISOString(),
+        deliveredBy: new Date(Date.now() + getRandTime(3, 5)).toISOString()
     };
 
     orders.push(order);
@@ -65,25 +66,7 @@ const getOrderDetails = (req, res) => {
         return res.status(400).json({ status: "error", error: "Invalid order ID" });
     }
 
-    order.preparedBy = new Date(order.preparedBy).toLocaleString();
-    order.deliveredBy = new Date(order.deliveredBy).toLocaleString();
-
     res.json({ status: "success", data: order });
-};
-
-// Utility Functions
-const getId = () => {
-    while (true) {
-        let id = Math.floor(Math.random() * 1000);
-        if (!idMap[id]) {
-            idMap[id] = 1;
-            return id;
-        }
-    }
-};
-
-const getRandTime = (min, max) => {
-    return (Math.floor(Math.random() * (max - min)) + min) * 60 * 1000;
 };
 
 module.exports = {
